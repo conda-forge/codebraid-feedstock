@@ -1,20 +1,20 @@
 {% set name = "codebraid" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c952fd144063b1baedfc69a7dee8ff0fced428d54e42a6942912494a5c9da498
+  sha256: f24f028767504121bcd58eea9d105e715897cc53bc7d6060b1d935b25e5352f4
 
 build:
   noarch: python
   number: 0
   entry_points:
     - codebraid = codebraid.cmdline:main
-  script: "{{ PYTHON }} -m pip install . -vv "
+  script: '{{ PYTHON }} -m pip install . -vv '
 
 requirements:
   host:
