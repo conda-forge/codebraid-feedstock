@@ -1,5 +1,5 @@
 {% set name = "codebraid" %}
-{% set version = "0.10.2" %}
+{% set version = "0.10.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 90e46d742e835440fad68013c27116b153ff32dd590c4ab73babea551df70544
+  sha256: 33fbb1b86ae2f26de044d96084e1d4e1b13d05a5a7f05f8d8b8d0802dae3814b
 
 build:
   noarch: python
