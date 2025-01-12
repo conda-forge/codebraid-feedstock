@@ -6,12 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 6dd5c7c5de18cae13a7e43fb8bd7ff3cb12e642ac53cccebf8132050c626b999
 
 build:
   noarch: python
-  number: 0
+  number: 1
   entry_points:
     - codebraid = codebraid.cmdline:main
   script: '{{ PYTHON }} -m pip install . -vv '
@@ -19,12 +19,14 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python {{ python_min }}
   run:
     - bespon >=0.6
-    - python >=3.7
+    - python >={{ python_min }}
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - codebraid
     - codebraid.codeprocessors
